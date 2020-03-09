@@ -1,0 +1,47 @@
+open git bash and write the following commands
+Once you have paired your desktop and github, you do not need to login all the time. 
+
+Sakhawath Hossain@SaKhaWath MINGW64 ~
+$ ssh-keygen -t rsa -b 4096 -C "sakhawath19@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Sakhawath Hossain/.ssh/id_rsa):
+/c/Users/Sakhawath Hossain/.ssh/id_rsa already exists.
+
+Overwrite (y/n)? y
+
+Enter passphrase (empty for no passphrase):
+
+Enter same passphrase again:
+
+Your identification has been saved in /c/Users/Sakhawath Hossain/.ssh/id_rsa
+
+Your public key has been saved in /c/Users/Sakhawath Hossain/.ssh/id_rsa.pub
+
+The key fingerprint is:
+SHA256:ItCrADtO78Jm4nWduPAWLRouGwKRO0z//MNjkB+/9LY sakhawath19@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|                 |
+| . .             |
+|+.. .            |
+|++.. .           |
+|Bo .o + S        |
+|++.oo*o+.        |
+|ooo+o=*oo.       |
+|o*+o+.o*....     |
+|=o+..o..o.oE.    |
++----[SHA256]-----+
+
+Sakhawath Hossain@SaKhaWath MINGW64 ~
+$ eval $(ssh-agent -s)
+Agent pid 72
+
+Sakhawath Hossain@SaKhaWath MINGW64 ~
+$ ssh-add ~/.ssh/id_rsa
+Enter passphrase for /c/Users/Sakhawath Hossain/.ssh/id_rsa:
+Identity added: /c/Users/Sakhawath Hossain/.ssh/id_rsa (sakhawath19@gmail.com)
+
+Sakhawath Hossain@SaKhaWath MINGW64 ~
+$ clip < ~/.ssh/id_rsa.pub
+
+Now open your github < go to settings < go to SSH and GPG key < add new SSH < ctr+v 
