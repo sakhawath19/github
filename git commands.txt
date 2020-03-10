@@ -1,3 +1,13 @@
 Remove git initialization from a folder 
 rd /s /q .git
 
+git log --all --decorate --oneline --graph
+
+git branch --merged
+
+git push -u origin MyNewBranch
+
+git branch -d <branch name> ---- delete branch from local
+
+git push origin --delete <branch name> --- delete branch from remote
+
