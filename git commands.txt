@@ -1,13 +1,80 @@
-Remove git initialization from a folder 
-rd /s /q .git
+#######Initially you need to configure your git by giving user name and email to keep track of your credit
 
-git log --all --decorate --oneline --graph
+git config --global user.name "sakhawath"
+git config --global user.email "sakhawath19@gmail.com"
+git config --global core.editor emacs --- if you want to change your default editor
+git config --list --show-origin
+git config --list
+git config user.name
 
-git branch --merged
 
-git push -u origin MyNewBranch
+######Git initializtion 
+git init project1 --- it will intialize git with the directory project1
+cd project1
+git notepad file1.txt
+git add file1.txt
+git commit -m "file1 has been added"
+git push ---to upload the project, please follow the next block "Add your existing project to github"
+
+
+##### Remove git initialization 
+rd /s /q .git ---Remove git initialization from a folder 
+
+
+######Add your existing project to github
+First create the remote repo such as "clone_test"
+Then you will get the url such as "https://github.com/sakhawath19/clone_test.git"
+
+git remote add origin https://github.com/sakhawath19/clone_test.git ---git now know about your remote repository
+git push -u origin master ---to upload file to your added remote repository
+git remote -v ---to see remote repository url
+
+
+
+##### Git branch
+git branch --merged --- to see which branch has been merged with the current branch
+git branch --no--merged --- to see which branch has not been merged yet
+
+git push -u origin <branch name> --- to upload NewBranch to remote directory
 
 git branch -d <branch name> ---- delete branch from local
-
+git branch -D <branch name> --- forcefully deleting branch without merging 
 git push origin --delete <branch name> --- delete branch from remote
+
+git branch -v ---to see the last commit of each branch
+
+git branch -b iss53 ---creating new branch and checkout at the same time, Working with 53 number issue
+
+git commit -a -m "file3 modified" ---direct commit without adding the changed file
+
+
+##### Git fetch, pull, clone, merge
+git fetch <remote> ---it will download all the data from remote repository
+git fetch origin --- if you cloned remote repository, then you can fetch new data which have been modified since you have cloned it
+git clone --- it will set your local master branch to track your remote master branch
+git pull --- it will automatically download and merge with your existing directory
+
+git push -u origin <branch name> --- to upload NewBranch to remote directory, do it when your local repo tracking the remote repo
+
+git push <remote url which you have created or exist> master --- you are uploading your master branch to the given url
+git push <remote url> <branch name> ---you are uploading new branch to the remote repo 
+
+
+##### See the log history in short
+git log --all --decorate --oneline --graph ---only commit with tracking history will show
+
+git branch -v ---to see the last commit of each branch
+
+git remote -v ---to see remote repository url
+
+git status -s ---short form of status
+
+
+##### Remove file and folder
+git rm <file name> --- remove file
+git rm -f <file name> ---remove file forcefully
+git rm -r <folder name> ---remove folder and file in it
+git rm --cached <file name> ---it will delete file from repo, but it will remain in the file system 
+git rm -r --cached ---remove everything from repo. But commit everything before doing it
+
 
