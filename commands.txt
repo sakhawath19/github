@@ -1,5 +1,4 @@
 #######Initially you need to configure your git by giving user name and email to keep track of your credit
-
 git config --global user.name "sakhawath"
 git config --global user.email "sakhawath19@gmail.com"
 git config --global core.editor emacs --- if you want to change your default editor
@@ -13,6 +12,7 @@ git init project1 --- it will intialize git with the directory project1
 cd project1
 git notepad file1.txt
 git add file1.txt
+git add newFolder/newFile.txt ---To add a new folder to repository
 git commit -m "file1 has been added"
 git push ---to upload the project, please follow the next block "Add your existing project to github"
 
@@ -55,10 +55,12 @@ git clone --- it will set your local master branch to track your remote master b
 git pull --- it will automatically download and merge with your existing directory
 
 git push -u origin <branch name> --- to upload NewBranch to remote directory, do it when your local repo tracking the remote repo
+git push origin <branch name> --- Pushes the changes in your local repository up to the remote repository you specified as the origin
 
 git push <remote url which you have created or exist> master --- you are uploading your master branch to the given url
 git push <remote url> <branch name> ---you are uploading new branch to the remote repo 
 
+git push origin v1.5 --- transfer tag to remote server
 
 ##### See the log history in short
 git log --all --decorate --oneline --graph ---only commit with tracking history will show
@@ -69,12 +71,61 @@ git remote -v ---to see remote repository url
 
 git status -s ---short form of status
 
+git show <version>
+
 
 ##### Remove file and folder
 git rm <file name> --- remove file
 git rm -f <file name> ---remove file forcefully
 git rm -r <folder name> ---remove folder and file in it
-git rm --cached <file name> ---it will delete file from repo, but it will remain in the file system 
+git rm --cached <file name> ---it will delete file from repo, but it will remain in the file system or hard drive 
 git rm -r --cached ---remove everything from repo. But commit everything before doing it
+git rm log/\*.log --- This command removes all files that have the .log extension in the log/ directory
+
+
+##### diff
+git diff <commit-no-1> <commit-no-2>
+git diff --cached
+
+
+##### Git ignore 
+# ignore all .a files
+*.a
+
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+
+# ignore all files in any directory named build
+build/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf 
+
+
+##### Creating version or tag
+git tag -a v0.1 -m "Version v0.1" --- Tagging a version with your project 
+git tag -l ---show the list of your version
+git tag -1 -l "v1.8.5*" --- looking at specific series of version
+
+git tag v1.4-lw ---lighweight tag(read more later)
+
+git push origin v0.1 ---uploading to remote server version 0.1
+git push origin tags ---pushes all of your tags
+
+git tag -d <version>
+git push origin --delete <tagname> ---to delete remote version
+
+git show <tag> 
+
+
+
+##### Git Aliases ---create your own command
+git config --global alias.ci commit --- next time you can use ci instead of commit in your command line
 
 
