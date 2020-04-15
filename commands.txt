@@ -87,6 +87,10 @@ git rm log/\*.log --- This command removes all files that have the .log extensio
 git diff <commit-no-1> <commit-no-2>
 git diff --cached
 
+##### Roll back to previous commit
+git revert --no-commit 0766c053..HEAD ---specifi commit id:0766c053
+git commit -m <message> ---this will create new commit from the existing commit, then no information will be lost but previous state is regained 
+
 
 ##### Git ignore 
 # ignore all .a files
