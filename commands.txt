@@ -24,9 +24,13 @@ git help <help command>				--- shows help in web browser
 git init <newProject> 				--- it will intialize git with the directory newProject
 cd <newProject>					--- move to the newProject directory
 git notepad <file1.txt>				--- open a text file 
+
 git add <filename>				--- add updated file or new file
 git add <newFolder/newFile.txt> 		--- add a new folder including a file to local repo
+
 git commit -m <"New message">			--- commit with a meaning message 
+git commit -a -m "New message"			--- file added and commited 
+
 git push 					--- uploading to remote repo
 
 
@@ -100,6 +104,20 @@ git push origin v1.5 				--- transfer tag to remote server
 
 
 
+##### Commit (find difference between two commit)
+git diff <commit-no-1> <commit-no-2>		--- shows difference between two commit
+git diff --cached
+
+
+
+
+##### Commit (roll back to previous commit)
+git revert --no-commit 0766c053..HEAD 		--- specifi commit id:0766c053
+git commit -m <message> 			--- create new commit from the existing commit; No information will be lost but previous state is regained 
+
+
+
+
 ##### History of previous commit
 git log
 git log --stat
@@ -133,20 +151,6 @@ git rm -r <folder name> 			--- remove folder and file in it
 git rm --cached <file name> 			--- delete file from repo, but remain in the file system or hard drive 
 git rm -r --cached 				--- remove everything from repo. But commit everything before doing it
 git rm log/\*.log 				--- remove all files that have the .log extension in the log/ directory
-
-
-
-
-##### Commit (find difference between two commit)
-git diff <commit-no-1> <commit-no-2>		--- shows difference between two commit
-git diff --cached
-
-
-
-
-##### Commit (roll back to previous commit)
-git revert --no-commit 0766c053..HEAD 		--- specifi commit id:0766c053
-git commit -m <message> 			--- create new commit from the existing commit; No information will be lost but previous state is regained 
 
 
 
