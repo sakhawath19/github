@@ -1,8 +1,9 @@
-####### Configure your git by giving user name and email to keep track of your credit
+##### Configure git by adding user name and email to keep track of your credit
 git config --global user.name "sakhawath"
 git config --global user.email "sakhawath19@gmail.com"
-git config --global core.editor emacs --- if you want to change your default editor
-git config --list --show-origin
+git config --global core.editor emacs 		--- if you want to change your default editor
+
+git config --list --show-origin 
 git config --list
 git config user.name
 
@@ -10,19 +11,19 @@ git config user.name
 
 
 ###### Git initializtion 
-git init project1 --- it will intialize git with the directory project1
-cd project1
-git notepad file1.txt
-git add file1.txt
-git add newFolder/newFile.txt ---To add a new folder to repository
-git commit -m "file1 has been added"
-git push ---to upload the project, please follow the next block "Add your existing project to github"
+git init <newProject> 				--- it will intialize git with the directory newProject
+cd <newProject>					--- move to the newProject directory
+git notepad <file1.txt>				--- open a text file 
+git add <filename>				--- add updated file or new file
+git add <newFolder/newFile.txt> 		--- add a new folder including a file to local repo
+git commit -m <"New message">			--- commit with a meaning message 
+git push 					--- uploading to remote repo
 
 
 
 
-##### Remove git initialization 
-rd /s /q .git ---Remove git initialization from a folder 
+##### Git initialization removal 
+rd /s /q .git 					---Remove git initialization from local repo 
 
 
 
@@ -31,46 +32,46 @@ rd /s /q .git ---Remove git initialization from a folder
 First create the remote repo such as "clone_test"
 Then you will get the url such as "https://github.com/sakhawath19/clone_test.git"
 
-git remote add origin https://github.com/sakhawath19/clone_test.git ---git now know about your remote repository
-git push -u origin master ---to upload file to your added remote repository
-git remote -v ---to see remote repository url
+git remote add origin <remote url> 		--- add existing remote repository
+git push -u origin master 			--- upload file to the remote repository
+git remote -v 					--- shows remote repository url
 
 
 
 
 ##### Git branch 
-git branch --merged --- to see which branch has been merged with the current branch
-git branch --no--merged --- to see which branch has not been merged yet
+git branch --merged 				--- shows which branch has been merged with the current branch
+git branch --no--merged 			--- shows which branch has not been merged yet
 
-git push -u origin <branch name> --- to upload NewBranch to remote directory
+git push -u origin <branch name> 		--- to upload NewBranch to remote directory
 
-git branch -d <branch name> ---- delete branch from local
-git branch -D <branch name> --- forcefully deleting branch without merging 
-git push origin --delete <branch name> --- delete branch from remote
+git branch -d <branch name> 			--- delete branch from local
+git branch -D <branch name> 			--- forcefully deleting branch without merging 
+git push origin --delete <branch name> 		--- delete branch from remote
 
-git branch -v ---to see the last commit of each branch
+git branch -v 					--- presents last commit of each branch
 
-git branch -b iss53 ---creating new branch and checkout at the same time, Working with 53 number issue
+git branch -b iss53 				--- creating new branch and checkout at the same time, Working with 53 number issue
 
-git commit -a -m "file3 modified" ---direct commit without adding the changed file
+git commit -a -m "file3 modified" 		--- direct commit without adding the changed file
 
 
 
 
 ##### Git fetch, pull, clone, merge
-git fetch <remote> ---it will download all the data from remote repository
-git fetch origin --- if you cloned remote repository, then you can fetch new data which have been modified since you have cloned it
-git clone --- it will set your local master branch to track your remote master branch
+git fetch <remote> 				--- download all the data from remote repository
+git fetch origin 				--- fetch new data which have been modified since you have cloned it
+git clone 					--- set a local master branch to track your remote master branch
 git clone <remote url>
-git pull --- it will automatically download and merge with your existing directory
+git pull 					--- download and merge with your existing directory
 
-git push -u origin <branch name> --- to upload NewBranch to remote directory, do it when your local repo tracking the remote repo
-git push origin <branch name> --- Pushes the changes in your local repository up to the remote repository you specified as the origin
+git push -u origin <branch name> 		--- to upload NewBranch to remote directory. Do it when your local repo tracking the remote repo
+git push origin <branch name> 			--- Pushes the changes in your local repository up to the remote repository you specified as the origin
 
-git push <remote url which you have created or exist> master --- you are uploading your master branch to the given url
-git push <remote url> <branch name> ---you are uploading new branch to the remote repo 
+git push <remote url> master 			--- you are uploading your master branch to the given url
+git push <remote url> <branch name> 		--- uploading new branch to the remote repo 
 
-git push origin v1.5 --- transfer tag to remote server
+git push origin v1.5 				--- transfer tag to remote server
 
 
 
@@ -79,40 +80,49 @@ git push origin v1.5 --- transfer tag to remote server
 git log
 git log --stat
 git log --pretty=oneline
-git log --all --decorate --oneline --graph ---only commit with tracking history will show
+git log --all --decorate --oneline --graph 	--- only commit with tracking history will show
 
-git branch -v ---to see the last commit of each branch
+git branch -v 					--- to see the last commit of each branch
 
-git remote -v ---to see remote repository url
+git remote -v 					--- to see remote repository url
 
-git status -s ---short form of status
+git status -s 					--- short form of status
 
 git show <version>
 
 
 
 
+##### See changes of the updated file 
+git diff <filename>				--- shows latest update 
+git log --follow -p -- <file name>		--- shows entire history
+gitk <filename>					--- to see the changes log
+git blame <filename>				--- who have change what in a file
+
+
+
+
 ##### Remove file and folder
-git rm <file name> --- remove file, be careful, it will delete from hard drive
-git rm -f <file name> ---remove file forcefully, be careful, it will delete from hard drive
-git rm -r <folder name> ---remove folder and file in it
-git rm --cached <file name> ---it will delete file from repo, but it will remain in the file system or hard drive 
-git rm -r --cached ---remove everything from repo. But commit everything before doing it
-git rm log/\*.log --- This command removes all files that have the .log extension in the log/ directory
+git rm <file name> 				--- remove file, be careful, it will delete from hard drive
+git rm -f <file name> 				--- remove file forcefully, be careful, it will delete from hard drive
+git rm -r <folder name> 			--- remove folder and file in it
+git rm --cached <file name> 			--- delete file from repo, but remain in the file system or hard drive 
+git rm -r --cached 				--- remove everything from repo. But commit everything before doing it
+git rm log/\*.log 				--- remove all files that have the .log extension in the log/ directory
 
 
 
 
 ##### Commit (find difference between two commit)
-git diff <commit-no-1> <commit-no-2>
+git diff <commit-no-1> <commit-no-2>		--- shows difference between two commit
 git diff --cached
 
 
 
 
 ##### Commit (roll back to previous commit)
-git revert --no-commit 0766c053..HEAD ---specifi commit id:0766c053
-git commit -m <message> ---this will create new commit from the existing commit, then no information will be lost but previous state is regained 
+git revert --no-commit 0766c053..HEAD 		--- specifi commit id:0766c053
+git commit -m <message> 			--- create new commit from the existing commit; No information will be lost but previous state is regained 
 
 
 
@@ -140,17 +150,17 @@ doc/**/*.pdf
 
 
 ##### Creating version or tag
-git tag -a v0.1 -m "Version v0.1" --- Tagging a version with your project 
-git tag -l ---show the list of your version
-git tag -1 -l "v1.8.5*" --- looking at specific series of version
+git tag -a v0.1 -m "Version v0.1" 		--- tagging a version with your project 
+git tag -l 					--- show the list of your version
+git tag -1 -l "v1.8.5*" 			--- looking at specific series of version
 
-git tag v1.4-lw ---lighweight tag(read more later)
+git tag v1.4-lw 				--- lighweight tag(read more later)
 
-git push origin v0.1 ---uploading to remote server version 0.1
-git push origin tags ---pushes all of your tags
+git push origin v0.1 				--- uploading to remote server version 0.1
+git push origin tags 				--- pushes all of your tags
 
 git tag -d <version>
-git push origin --delete <tagname> ---to delete remote version
+git push origin --delete <tagname> 		--- to delete remote version
 
 git show <tag> 
 
@@ -158,7 +168,7 @@ git show <tag>
 
 
 ##### Git Aliases (create your own command)
-git config --global alias.ci commit --- next time you can use ci instead of commit in your command line
+git config --global alias.ci commit 		--- next time you can use ci instead of commit in your command line
 
 
 
