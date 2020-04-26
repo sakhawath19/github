@@ -10,6 +10,16 @@ git config user.name
 
 
 
+##### Git help
+git help -a					--- print all available commands in standard window
+git help -i 					--- Display manual page for the command in the info format
+git help -g					--- display useful guides
+git <help command> -h				--- print help in command window
+git help <help command>				--- shows help in web browser
+
+
+
+
 ###### Git initializtion 
 git init <newProject> 				--- it will intialize git with the directory newProject
 cd <newProject>					--- move to the newProject directory
@@ -28,13 +38,27 @@ rd /s /q .git 					---Remove git initialization from local repo
 
 
 
-###### Add existing project to github
+##### Remote repo
+git remote 					--- list all the remote connection 
+git remote -v 					--- shows remote repository with url
+git remote add <name> <url>			--- add remote repo with the given name 
+git remote rm <name>				--- remove remote repo 
+git remote rename <old-name> <new-name>
+
+
+
+
+###### Add existing project to remote repository 
 First create the remote repo such as "clone_test"
 Then you will get the url such as "https://github.com/sakhawath19/clone_test.git"
 
+git remote 					--- list all the remote connection 
+git remote -v 					--- shows remote repository with url
+
 git remote add origin <remote url> 		--- add existing remote repository
 git push -u origin master 			--- upload file to the remote repository
-git remote -v 					--- shows remote repository url
+
+git push <remote url> <branch>			--- creates a local branch in the destination repository
 
 
 
